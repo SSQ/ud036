@@ -10,4 +10,5 @@ toy_story = media.Movie("T S",
 #toy_story.show_trailer()
 movies = [toy_story]
 #fresh_tomatoes.open_movies_page(movies)
-print(media.Movie.VALID_RATINGS)
+#print(media.Movie.VALID_RATINGS)
+print(media.Movie.__doc__)
