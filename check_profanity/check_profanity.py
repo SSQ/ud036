@@ -1,4 +1,4 @@
-import urllib
+import urllib2
 
 def read_text():
     quotes = open("F:\Udacity\ud036\check_profanity\movie_quotes.txt")
@@ -8,9 +8,17 @@ def read_text():
     check_profanity(contents_of_file)
 
 def check_profanity(text_to_check):
-    connection = urllib.urlopen("https://www.wdylike.appspot.com/?q=" + text_to_check)
+    url = "https://www.wdylike.appspot.com/?q=" + text_to_check
+    #print(url)
+    connection = urllib2.urlopen(url)
     output = connection.read()
-    print(output)
+    #print(output)
     connection.close()
+    if "true" in output:
+        print("Profanity Alert!")
+    elif "false" in output:
+        print("Curse work not exist")
+    else:
+        print("Could not scan the document correctly")
 
 read_text()
